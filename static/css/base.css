@@ -1,0 +1,246 @@
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+
+.col-xl-10 .text-small{
+  font-size: 12px;
+}
+.container {
+  padding-top:30px;
+}
+ .usrname {
+   font-size: 12px;
+ }
+.btn-link {
+  color: #3e4555;
+}
+
+.container-fluid {
+    padding-right:0;
+    padding-left:0;
+    margin-right:auto;
+    margin-left:auto
+ }
+
+ @import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
+.service-6 {
+  font-family: "Montserrat", sans-serif;
+	color: #8d97ad;
+  font-weight: 300;
+}
+
+.service-6 h1, .service-6 h2, .service-6 h3, .service-6 h4, .service-6 h5, .service-6 h6 {
+  color: #3e4555;
+}
+
+.service-6 .font-weight-medium {
+	font-weight: 500;
+}
+
+.service-6 .subtitle {
+    color: #8d97ad;
+    line-height: 24px;
+}
+
+.service-6 a {
+	text-decoration: none;	
+}
+
+.service-6 .wrap-service6-box {
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
+
+.service-6 .wrap-service6-box .card-body {
+  padding: 30px;
+}
+
+.service-6 .wrap-service6-box .card-body .linking {
+  color: #ffffff;
+}
+
+.service-6 .wrap-service6-box .card-body .linking:hover {
+  color: #263238;
+}
+
+.service-6 .wrap-service6-box .card-body p {
+  opacity: 0.8;
+}
+
+.service-6 .wrap-service6-box:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.service-6 .bg-danger-gradiant {
+	  background: #ff4d7e;
+    background: -webkit-linear-gradient(legacy-direction(to right), #ff4d7e 0%, #ff6a5b 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ff4d7e), to(#ff6a5b));
+    background: -webkit-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+    background: -o-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+    background: linear-gradient(to right, #ff4d7e 0%, #ff6a5b 100%);
+}
+
+.service-6 .bg-info-gradiant {
+		background: #188ef4;
+    background: -webkit-linear-gradient(legacy-direction(to right), #188ef4 0%, #316ce8 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#188ef4), to(#316ce8));
+    background: -webkit-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: -o-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: linear-gradient(to right, #188ef4 0%, #316ce8 100%);
+}
+
+.service-6 .bg-success-gradiant {
+	  background: #2cdd9b;
+    background: -webkit-linear-gradient(legacy-direction(to right), #2cdd9b 0%, #1dc8cc 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#2cdd9b), to(#1dc8cc));
+    background: -webkit-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
+    background: -o-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
+    background: linear-gradient(to right, #2cdd9b 0%, #1dc8cc 100%);
+}
+
+.service-6 .btn-outline-success {
+		color: #2cdd9b !important;
+    background-color: transparent;
+    border-color: #2cdd9b !important;
+}
+
+.service-6 .btn-outline-success:hover {
+	  background: #2cdd9b;
+    border-color: #2cdd9b;
+    color: #ffffff !important;
+}
+
+.service-6 .btn-md {
+    padding: 15px 45px;
+    font-size: 16px;
+}
+
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.dropdown-menu {
+  position: static;
+  display: block;
+  width: auto;
+  margin: 4rem auto;
+}
+
+.dropdown-menu-macos {
+  display: grid;
+  gap: .25rem;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+.dropdown-menu-macos .dropdown-item {
+  border-radius: .25rem;
+}
+
+.dropdown-item-danger {
+  color: var(--bs-red);
+}
+.dropdown-item-danger:hover,
+.dropdown-item-danger:focus {
+  color: #fff;
+  background-color: var(--bs-red);
+}
+.dropdown-item-danger.active {
+  background-color: var(--bs-red);
+}
+
+.btn-hover-light {
+  text-align: left;
+  background-color: var(--bs-white);
+  border-radius: .25rem;
+}
+.btn-hover-light:hover,
+.btn-hover-light:focus {
+  color: var(--bs-blue);
+  background-color: var(--bs-light);
+}
+
+.cal-month,
+.cal-days,
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+}
+.cal-month-name {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  text-align: center;
+}
+.cal-weekday,
+.cal-btn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0;
+}
+.cal-btn:not([disabled]) {
+  font-weight: 500;
+}
+.cal-btn:hover,
+.cal-btn:focus {
+  background-color: rgba(0, 0, 0, .05);
+}
+.cal-btn[disabled] {
+  opacity: .5;
+}
+
+.form-control-dark {
+  background-color: rgba(255, 255, 255, .05);
+  border-color: rgba(255, 255, 255, .15);
+}
+@media (max-width:991.98px) {
+  .padding {
+      padding: 1.5rem
+  }
+}
+
+@media (max-width:767.98px) {
+  .padding {
+      padding: 1rem
+  }
+}
+.carousel{
+  background: #2f4357;
+  margin-top: 20px;
+}
+.carousel-item{
+  text-align: center;
+  min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: initial;
+  background-color: #fff;
+  border-radius: 11px;
+
+}
+
+.card .container-fluid {
+  padding: 10px;
+}

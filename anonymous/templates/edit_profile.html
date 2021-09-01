@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Edit Profile page</h2>
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-md-10 mx-auto col-lg-6">
+            <div class="p-4 p-md-6 border rounded-3 bg-light">
+                <div class="form-floating mb-3">
+                    <h2 class="h1-responsive font-weight-bold text-center">Update Profile</h2>
+                    <!-- <p class='text-center'>👇👇 Send an Anonymous message for your friend.</p> -->
+                    <hr class="my-3">
+                    <form class="form-group" method="post">
+                        {% csrf_token %}
+                        {{ form | crispy}}  
+
+                        <button class="btn btn-primary">Update Profile</button>
+                        <hr class="my-4">
+                         <small class="text-muted">Ensure to use a valid email address, as messages might have to be sent to it.</small>
+                         
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

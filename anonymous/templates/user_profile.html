@@ -1,0 +1,46 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-md-10 mx-auto col-lg-6">
+        <div class="p-4 p-md-6 border rounded-3 bg-light">
+            {% csrf_token %}
+          <div class="form-floating mb-3">
+            <h2 class="h1-responsive font-weight-bold text-center">{{user.username|title}}'s profile</h2>
+          </div>
+          
+              <h6 class=" text-center" id='usrname' onclick="copyToClipboard('#usrname')">{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{user.get_absolute_url}} <i class="fa fa-copy m-l-7"></i></h6>
+              <hr class="my-4"> 
+          <p>Share your profile link ❤️ to get responses from your friend. Go to "View Messages" to check out the responses. 👌</p>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="https://api.whatsapp.com/send?text=Write%20a%20*secret%20anonymous%20message*%20for%20me..%20%F0%9F%98%89%20I%20*won%27t%20know*%20who%20wrote%20it..%20%F0%9F%98%82%E2%9D%A4%20%F0%9F%91%89%20{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{user.get_absolute_url}}" target="_blank" > Share on WhatsApp &raquo;</a>
+              <span class="badge badge-primary badge-pill"><i class="fab fa-whatsapp"></i></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="https://www.facebook.com/sharer/?u={{ request.scheme }}://{{ request.META.HTTP_HOST }}{{user.get_absolute_url}}" target="_blank">Share on Facebook &raquo;</a>
+              <span class="badge badge-primary badge-pill"><i class="fab fa-facebook"></i></span>
+            </li>
+            
+          </ul>
+          <hr class="my-4">
+          <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>  
+        </form>
+      </div>
+    </div>
+  </div></div>
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).text()).select();
+      document.execCommand("copy");
+      alert("Link Copied To Clipboard!");
+      $temp.remove();
+    }
+    </script>
+  <div class="container
+  
+{% endblock content %}

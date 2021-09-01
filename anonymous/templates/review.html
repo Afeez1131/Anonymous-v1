@@ -1,0 +1,63 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<h2 class="font-weight-bold text-mute text-center">What People are saying about us</h2><br>
+
+{% if page_obj %}
+{% for review in page_obj %}
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-1">
+        <h2 class="card-title"><i class=" fas fa-user" style="color:#000;"></i></h2>
+      </div>
+      <div class="col-1">
+        <div class="col-xl-10 col-md-11 col-10">
+          <h5 class="font-weight-bold mb-0"> {{review.name}}</h5>
+          <p class="grey-text mb-0">{{review.occupation}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class='container-fluid'>
+      {{review.review}}
+    </div>
+    <hr>
+    <small>Time: {{review.created}}</small>
+  </div>
+</div><br>
+{% endfor %}
+{% if page_obj.has_previous %}
+<div class="bd-example">
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      <button type="button" class="btn btn-secondary"><a class="text-white" href="?page=1">&laquo; 1</a>
+      </button>
+      <button type="button" class="btn btn-secondary "><a class="text-white" href="?page-{{page_obj.previous}}">previous</a></button>
+      {% endif %}
+      <button type="button" class="btn btn-secondary">Page {{page_obj.number}} of
+        {{page_obj.paginator.num_pages}}</button>
+      {% if page_obj.has_next %}
+
+      <button type="button" class="btn btn-secondary"><a class="text-white" href="?page={{page_obj.next_page_number}}">next</a>
+      </button>
+      <button type="button" class="btn btn-secondary"><a class="text-white" href="?page={{page_obj.paginator.num_pages}}">Last &raquo;</a>
+      </button>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+</div>
+{% else %}
+<h3>No Review Currently</h3>
+{% endif %}
+
+{% endblock content %}

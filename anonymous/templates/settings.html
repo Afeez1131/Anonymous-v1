@@ -1,0 +1,32 @@
+{% extends '_base.html' %}
+
+
+{% block title %}
+Settings
+{% endblock title %}
+
+
+{% block content %}
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-md-10 mx-auto col-lg-6">
+            <div class="p-4 p-md-6 border rounded-3 bg-light">
+                <div class="form-floating mb-3">
+                    <h2 class="h1-responsive font-weight-bold text-center mb-3">Settings</h2>
+                    <div class="col offset-2">
+                        <p><a class="btn btn-sm btn-primary" style="width:200px;" href=" {% url 'edit_profile' %}">Edit Profile</a> </p>
+                        <p><a class="btn btn-sm btn-primary" style="width:200px;" href="{% url 'account_email'%}">Change Email</a></p>
+                        <p><a class="btn btn-sm btn-primary" style="width:200px;"
+                                href="{% url 'account_change_password' %}"> Change Password</a></p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

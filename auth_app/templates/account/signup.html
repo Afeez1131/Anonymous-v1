@@ -6,24 +6,22 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-
-
 <div class="container col-xl-10 col-xxl-8 px-4 py-5">
   <div class="row align-items-center g-lg-5 py-5">
     {% if messages %}
-      {% for message in messages %}
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <p>It is your turn to create an Anonymous Message</p>
-        <hr>
-        <h6>1. Sign Up for a free account <i class="fas fa-hand-point-right"></i></h6>
-        <h6>2. Copy your Profile link <i class="fas fa-copy"></i></h6>
-        <h6>3. Share with your friends. <i class="fas fa-share-alt-square"></i></h6>
-        <h6>4. Receive anonymous compliments. <i class="fas fa-hand-holding-heart"></i></h6>
+    {% for message in messages %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <p>It is your turn to create an Anonymous Message</p>
+      <hr>
+      <h6>1. Sign Up for a free account <i class="fas fa-hand-point-right"></i></h6>
+      <h6>2. Copy your Profile link <i class="fas fa-copy"></i></h6>
+      <h6>3. Share with your friends. <i class="fas fa-share-alt-square"></i></h6>
+      <h6>4. Receive anonymous compliments. <i class="fas fa-hand-holding-heart"></i></h6>
 
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     {% endfor %}
     {% endif %}
     <div class="col-md-10 mx-auto col-lg-5">
@@ -45,14 +43,3 @@
   </div>
 </div>
 {% endblock %}
-
-<!-- <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form | crispy }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit" class="btn btn-primary">{% trans "Sign Up" %} &raquo;</button>
-</form>
-
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}"><strong>sign in&raquo;</strong> </a>{% endblocktrans %}</p> -->

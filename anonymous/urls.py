@@ -14,5 +14,5 @@ urlpatterns = [
     path('settings/', SettingsView, name='settings'),
     path('message/<str:username>', MessageView, name='message'),
     path('delete/<int:m_id>/', delete_message, name='delete'),
-    path('spam/<int:user_id>/', spam_message, name='spam'),
+    path('spam/<int:m_id>/', spam_message, name='spam'),
 ]

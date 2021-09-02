@@ -7,6 +7,8 @@ from django.contrib import messages
 from review.models import Review
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import EditProfileForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
@@ -30,49 +32,56 @@ def MessageView(request, username):
                                             'message_user': message_user, })
 
 
-class UserProfile(TemplateView):
+class UserProfile(LoginRequiredMixin, TemplateView):
     template_name = 'user_profile.html'
 
 
 CustomUser = get_user_model()
 
 
-def EditProfile(request):
+@login_required(login_url='account_login')
+def EditProfile(request, username):
     user = get_object_or_404(get_user_model(), username=username)
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            pass
+            # user_profile = user.get_absolute_url()
+            user_profile = reverse('user_profile')
+            return HttpResponseRedirect(user_profile)
 
     form = EditProfileForm(instance=user)
     return render(request, 'edit_profile.html', {'form': form})
 
-# class EditProfile(UpdateView):
-#     model = CustomUser
-#     fields = ['username', 'email']
-#     template_name = 'edit_profile.html'
-#     # form_class = EditProfileForm
-#     def get_queryset(self):
-#         return get_user_model().objects.filter(username=self.kwargs['username'])
 
-
+@login_required(login_url='account_login')
 def delete_message(request, m_id):
     message_instance = get_object_or_404(Message, id=m_id)
-    user = message_instance.customuser
-    message_instance.delete()
-    message_instance.save()
+    message_instance_user = message_instance.customuser
+    if message_instance_user == request.user:
+        message_instance.delete()
+        return redirect(message_instance_user.get_absolute_url())
+    else:
+        return redirect('home')
 
-    return redirect(user.get_absolute_url())
 
+@login_required(login_url='account_login')
+def spam_message(request, m_id):
+    # get the Message filtering by the id provided in the url as *args
+    message_instance = get_object_or_404(Message, id=m_id)
+    # the person who created the message
+    message_instance_user = message_instance.customuser
+    if message_instance_user == request.user:
+        message_instance.text = 'The owner has marked this message as a spam.'
+        message_instance.save()
+        return redirect(message_instance_user.get_absolute_url())
 
-def spam_message(request, user_id):
-    message_instance = get_object_or_404(Message, id=user_id)
-    user = message_instance.customuser
-    message_instance.text = 'The owner has marked this message as a spam.'
-    message_instance.save()
-
-    return redirect(user.get_absolute_url())
+    else:
+        if request.user.is_authenticated:
+            url = 'home'
+        else:
+            url = 'account_login'
+        return redirect(url)
 
 
 class AbouUs(TemplateView):
@@ -93,6 +102,7 @@ def ReviewView(request):
     return render(request, template_name, {'page_obj': page_obj})
 
 
+@login_required(login_url='account_login')
 def SettingsView(request):
 
     return render(request, 'settings.html', {})

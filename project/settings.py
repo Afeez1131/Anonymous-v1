@@ -19,7 +19,7 @@ environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
+# ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -176,16 +176,15 @@ ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 
-if ENVIRONMENT == 'production':
-    SECURE_BROWSER_XSS_FILTER = True
-    X_FRAME_OPTIONS = 'DENY'
-    SECURE_SSL_REDIRECT = True
-    SECURE_HSTS_SECONDS = 3600 
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True # new 
-    SECURE_CONTENT_TYPE_NOSNIFF = True # new
-    SESSION_COOKIE_SECURE = True # new 
-    CSRF_COOKIE_SECURE = True 
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 3600 
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True # new 
+SECURE_CONTENT_TYPE_NOSNIFF = True # new
+SESSION_COOKIE_SECURE = True # new 
+CSRF_COOKIE_SECURE = True 
 
 
 

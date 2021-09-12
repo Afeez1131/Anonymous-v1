@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-)yh*3qywjpcl-*n!elk8z018(_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['anonymousng.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'auth_app',
-    'anonymous',
-    'review',
+    'auth_app.apps.AuthAppConfig',
+    'anonymous.apps.AnonymousConfig',
+    'review.apps.ReviewConfig',
 
     'allauth',
     'allauth.account',
@@ -54,17 +54,18 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = 'myproject.urls'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -87,9 +88,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project.wsgi.application'
+WSGI_APPLICATION = 'myproject.wsgi.application'
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -104,6 +105,8 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500) 
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -185,5 +188,4 @@ if ENVIRONMENT == 'production':
     CSRF_COOKIE_SECURE = True 
 
 
-db_from_env = dj_database_url.config(conn_max_age=500) 
-DATABASES['default'].update(db_from_env)
+

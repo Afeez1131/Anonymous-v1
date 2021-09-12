@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['anonymousng.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -105,7 +105,7 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=500) 
+db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # Password validation
@@ -139,13 +139,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-#error
+# error
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_FINDERS = [
@@ -179,12 +179,9 @@ ACCOUNT_EMAIL_REQUIRED = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 3600 
+SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True # new 
-SECURE_CONTENT_TYPE_NOSNIFF = True # new
-SESSION_COOKIE_SECURE = True # new 
-CSRF_COOKIE_SECURE = True 
-
-
-
+SECURE_HSTS_PRELOAD = True  # new
+SECURE_CONTENT_TYPE_NOSNIFF = True  # new
+SESSION_COOKIE_SECURE = True  # new
+CSRF_COOKIE_SECURE = True

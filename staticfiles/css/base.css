@@ -1,0 +1,26 @@
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+
+.col-xl-10 .text-small{
+  font-size: 12px;
+}
+.container {
+  padding-top:10px;
+}
+ .usrname {
+   font-size: 12px;
+ }
+.btn-link {
+  color: #3e4555;
+}
+
+.container-fluid {
+    padding-right:0;
+    padding-left:0;
+    margin-right:auto;
+    margin-left:auto
+ }
+
+ 

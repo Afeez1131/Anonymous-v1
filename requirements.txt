@@ -46,3 +46,4 @@ virtualenv==20.7.2
 whitenoise==5.3.0
 wrapt==1.12.1
 django-heroku
+python-dotenv

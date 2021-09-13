@@ -97,7 +97,13 @@ def ReviewView(request):
     template_name = "review.html"
     paginator = Paginator(reviews, 5)
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    try:
+        page_obj = paginator.get_page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(page_number)
+
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
 
     return render(request, template_name, {'page_obj': page_obj})
 
@@ -118,4 +124,5 @@ def AddReview(request):
             name=name, review=review, occupation=occupation)
         new_review.save()
         messages.success(request, 'Review submitted successfully')
+        return redirect('review')
     return render(request, 'add_review.html', {})

@@ -14,8 +14,8 @@
       <div class="col-1">
         <h2 class="card-title"><i class=" fas fa-user" style="color:#000;"></i></h2>
       </div>
-      <div class="col-1">
-        <div class="col-xl-10 col-md-11 col-10">
+      <div class="col-6">
+        <div class="col-xl-10">
           <h5 class="font-weight-bold mb-0"> {{review.name}}</h5>
           <p class="grey-text mb-0">{{review.occupation}}</p>
         </div>
@@ -51,11 +51,12 @@
           href="?page={{page_obj.paginator.num_pages}}">Last &raquo;</a>
       </button>
       {% endif %}
+      <a href="{% url 'add_review' %}" class="btn btn-md btn-warning">Leave a Review</a>
 
     </div>
-
   </div>
 </div>
+
 </div>
 
 </div>

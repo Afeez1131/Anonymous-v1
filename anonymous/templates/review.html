@@ -37,15 +37,18 @@
     <div class="btn-group me-2" role="group" aria-label="First group">
       <button type="button" class="btn btn-secondary"><a class="text-white" href="?page=1">&laquo; 1</a>
       </button>
-      <button type="button" class="btn btn-secondary "><a class="text-white" href="?page-{{page_obj.previous}}">previous</a></button>
+      <button type="button" class="btn btn-secondary "><a class="text-white"
+          href="?page-{{page_obj.previous}}">previous</a></button>
       {% endif %}
       <button type="button" class="btn btn-secondary">Page {{page_obj.number}} of
         {{page_obj.paginator.num_pages}}</button>
       {% if page_obj.has_next %}
 
-      <button type="button" class="btn btn-secondary"><a class="text-white" href="?page={{page_obj.next_page_number}}">next</a>
+      <button type="button" class="btn btn-secondary"><a class="text-white"
+          href="?page={{page_obj.next_page_number}}">next</a>
       </button>
-      <button type="button" class="btn btn-secondary"><a class="text-white" href="?page={{page_obj.paginator.num_pages}}">Last &raquo;</a>
+      <button type="button" class="btn btn-secondary"><a class="text-white"
+          href="?page={{page_obj.paginator.num_pages}}">Last &raquo;</a>
       </button>
       {% endif %}
 

@@ -12,7 +12,7 @@ urlpatterns = [
     path('review/', ReviewView, name='review'),
     path('review/add/', AddReview, name='add_review'),
     path('settings/', SettingsView, name='settings'),
-    path('message/<str:username>', MessageView, name='message'),
+    path('message/<str:username>/', MessageView, name='message'),
     path('delete/<int:m_id>/', delete_message, name='delete'),
     path('spam/<int:m_id>/', spam_message, name='spam'),
 ]

@@ -187,4 +187,4 @@ SECURE_CONTENT_TYPE_NOSNIFF = True  # new
 SESSION_COOKIE_SECURE = True  # new
 CSRF_COOKIE_SECURE = True
 
-django_heroku.settings(locals())    
+django_heroku.settings(locals())

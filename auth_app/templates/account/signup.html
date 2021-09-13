@@ -8,22 +8,7 @@
 {% block content %}
 <div class="container col-xl-10 col-xxl-8 px-4 py-5">
   <div class="row align-items-center g-lg-5 py-5">
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <p>It is your turn to create an Anonymous Message</p>
-      <hr>
-      <h6>1. Sign Up for a free account <i class="fas fa-hand-point-right"></i></h6>
-      <h6>2. Copy your Profile link <i class="fas fa-copy"></i></h6>
-      <h6>3. Share with your friends. <i class="fas fa-share-alt-square"></i></h6>
-      <h6>4. Receive anonymous compliments. <i class="fas fa-hand-holding-heart"></i></h6>
 
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    {% endfor %}
-    {% endif %}
     <div class="col-md-10 mx-auto col-lg-5">
       <form class="signup p-4 p-md-6 border rounded-3 bg-light" id="signup_form" method="post">
         {% csrf_token %}

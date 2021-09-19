@@ -25,7 +25,8 @@ def MessageView(request, username):
         user_new_message = Message.objects.create(
             customuser=message_user, text=message)
         user_new_message.save()
-        messages.success(request, 'Added')
+        messages.success(
+            request, 'Compliments dropped successfully, Create your own Account below to receive and give Anonymous compliments')
         return redirect('account_signup')
 
     return render(request, 'message.html', {'all_messages': all_messages,

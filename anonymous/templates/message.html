@@ -34,7 +34,7 @@
                                 <ul class="pagination pagination-sm">
                                   <li class="page-item"><a class="btn-link page-link" href="{% url 'spam' message.id %}"><i class="fas fa-ban"></i> Spam</a></li>
                                   <li class="page-item"><a class="btn-link page-link" href="{% url 'delete' message.id %}"><i class="fas fa-trash-alt"></i> Delete</a></li>
-                                  <li class="page-item"><a class="btn-link page-link" href="https://api.whatsapp.com/send?text={{message.text}}%20{{message.created}}">Share <i class="fab fa-whatsapp"></i>
+                                  <li class="page-item"><a class="btn-link page-link" href="https://api.whatsapp.com/send?text={{message.text}}%20{{message.created}}%20Get%20started%20at%20{{ request.scheme }}://{{ request.META.HTTP_HOST }}">Share <i class="fab fa-whatsapp"></i>
  &raquo;</a></a></li>
                                 </ul>
                               </nav>

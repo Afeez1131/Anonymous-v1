@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
 {% if request.user == message_user  %}
 <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
@@ -32,12 +33,17 @@
 
                             <nav aria-label="Pagination example">
                                 <ul class="pagination pagination-sm">
-                                  <li class="page-item"><a class="btn-link page-link" href="{% url 'spam' message.id %}"><i class="fas fa-ban"></i> Spam</a></li>
-                                  <li class="page-item"><a class="btn-link page-link" href="{% url 'delete' message.id %}"><i class="fas fa-trash-alt"></i> Delete</a></li>
-                                  <li class="page-item"><a class="btn-link page-link" href="https://api.whatsapp.com/send?text=*{{message.text}}*%20_{{message.created}}_%20Get%20started%20at%20{{ request.scheme }}://{{ request.META.HTTP_HOST }}">Share <i class="fab fa-whatsapp"></i>
- &raquo;</a></a></li>
+                                    <li class="page-item"><a class="btn-link page-link"
+                                            href="{% url 'spam' message.id %}"><i class="fas fa-ban"></i> Spam</a></li>
+                                    <li class="page-item"><a class="btn-link page-link"
+                                            href="{% url 'delete' message.id %}"><i class="fas fa-trash-alt"></i>
+                                            Delete</a></li>
+                                    <li class="page-item"><a class="btn-link page-link"
+                                            href="https://api.whatsapp.com/send?text=*{{message.text}}*%20_{{message.created}}_%20Get%20started%20at%20{{ request.scheme }}://{{ request.META.HTTP_HOST }}">Share
+                                            <i class="fab fa-whatsapp"></i>
+                                            &raquo;</a></a></li>
                                 </ul>
-                              </nav>
+                            </nav>
                         </div>
                     </div>
                     <hr>

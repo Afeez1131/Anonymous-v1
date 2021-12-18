@@ -38,7 +38,8 @@ def MessageView(request, username):
         return redirect('account_signup')
 
     return render(request, 'message.html', {'all_messages': all_messages,
-                                            'message_user': message_user, })
+                                            'message_user': message_user,
+                                            })
 
 
 class UserProfile(LoginRequiredMixin, TemplateView):
@@ -49,6 +50,7 @@ CustomUser = get_user_model()
 
 
 @login_required(login_url='account_login')
+
 def EditProfile(request, username):
     user = get_object_or_404(get_user_model(), username=username)
     if request.method == 'POST':
